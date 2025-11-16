@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Movimientos Financieros IA2060</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header>
+        <div id="logo-container">
+            <img src="https://i.ibb.co/cXhr44XB/LOGO-IA2060-IMG.jpg" alt="Logo de IA2060">
+            <div class="link-container">
+                <a href="https://www.ia2060.com">ia2060.com</a>
+            </div>
+        </div>
+        <h1>Gestor de Movimientos Financieros IA2060</h1>
+    </header>
+
+    <main>
+        <div class="controls-container">
+            <div class="view-controls">
+                <button id="listViewBtn" class="active">Vista Listado</button>
+                <button id="calendarViewBtn">Vista Calendario</button>
+            </div>
+            <div class="currency-controls">
+                <label for="currencySelect">Moneda:</label>
+                <select id="currencySelect">
+                    <option value="EUR">€ EUR (Default)</option>
+                    <option value="USD">$ USD</option>
+                </select>
+            </div>
+        </div>
+
+        <section id="form-section">
+            <div class="form-container">
+                <h2>Registro de Movimiento</h2>
+                
+                <div class="current-month-display">
+                    Mes de Ingreso: <span id="displayMonth"></span>
+                    <button id="prevMonthBtn" type="button">◀️</button>
+                    <button id="nextMonthBtn" type="button">▶️</button>
+                </div>
+
+                <form id="registroForm">
+                    <label for="tipo">Tipo:</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="ingreso">Ingreso</option>
+                        <option value="gasto">Gasto</option>
+                    </select>
+
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        </select>
+                    
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion" required maxlength="20">
+                    
+                    <label for="monto">Monto:</label>
+                    <input type="number" id="monto" name="monto" min="0" step="0.01" required>
+                    
+                    <label for="fecha">Fecha (D/M/A):</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                    
+                    <div class="form-buttons">
+                        <button type="submit">Agregar Movimiento</button>
+                        <button id="vozBtn" type="button">🎙️ Voz</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="data-section">
+            <div class="data-header">
+                <h2 id="saldoTotal">Saldo Total: 0.00 €</h2>
+                <div class="utility-buttons">
+                    <button id="clearAllBtn" class="delete-btn">💣 Borrar Todo</button>
+                    <button id="resetBalanceBtn" type="button">Saldo Inicial</button>
+                </div>
+            </div>
+            
+            <div id="calendar-view" class="view-container hidden">
+                <div id="calendar-header">
+                    <h3 id="calendarMonthTitle"></h3>
+                </div>
+                <div id="calendar-grid">
+                    </div>
+                <p class="legend-text">
+                    **Leyenda:** <span class="ingreso-bg">Ingreso</span> | <span class="gasto-bg">Gasto</span> | <span class="red-balance">Saldo Rojo</span>
+                </p>
+            </div>
+
+            <div id="list-view" class="view-container">
+                <table id="movimientosTable">
+                    <thead>
+                        <tr>
+                            <th>Realizado</th>
+                            <th>Tipo</th>
+                            <th>Categoría</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    
+    <div id="red-balance-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-title">🚨 ¡ALERTA DE SALDO EN ROJO! 🚨</h3>
+            <p id="modal-message"></p>
+            <div class="action-links">
+                <a href="https://www.inteligenciaartificial2060.com/formulario-pagina-web-ia-100-gratuita-sin-tarjeta-de-credito" target="_blank" class="modal-link">
+                    🌐 ¡Genera Ingreso con Nosotros! 
+                </a>
+                <a href="https://www.inteligenciaartificial2060.com/moneytiza-ia2060" target="_blank" class="modal-link">
+                    💸 Moneytiza IA2060
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
